@@ -11,11 +11,11 @@ plantillas = Jinja2Templates(directory=DIR_BASE / "templates")
 api = FastAPI(title="Gestor de Inventario")
 
 ARTICULOS = [
-    {"codigo": 1, "denominacion": "Laptop Pro 14", "seccion": "Computo", "costo": 18999.00, "unidades": 12},
-    {"codigo": 2, "denominacion": 'Monitor 27" 4K', "seccion": "Pantallas", "costo": 7499.50, "unidades": 30},
-    {"codigo": 3, "denominacion": "Teclado Mecanico", "seccion": "Accesorios", "costo": 1299.99, "unidades": 85},
-    {"codigo": 4, "denominacion": "Mouse Inalambrico", "seccion": "Accesorios", "costo": 499.00, "unidades": 120},
-    {"codigo": 5, "denominacion": "Webcam Full HD", "seccion": "Video", "costo": 899.00, "unidades": 45},
+    {"codigo": 1, "denominacion": "PC vivobook 5", "seccion": "Computo", "costo": 18999.00, "unidades": 12},
+    {"codigo": 2, "denominacion": 'Televisor" 4K', "seccion": "Pantallas", "costo": 7499.50, "unidades": 30},
+    {"codigo": 3, "denominacion": "Teclado Magnetico", "seccion": "Accesorios", "costo": 1299.99, "unidades": 85},
+    {"codigo": 4, "denominacion": "Mouse Gamer", "seccion": "Accesorios", "costo": 499.00, "unidades": 120},
+    {"codigo": 5, "denominacion": "Webcam Full 4k", "seccion": "Video", "costo": 899.00, "unidades": 45},
 ]
 
 @api.get("/", response_class=HTMLResponse)
