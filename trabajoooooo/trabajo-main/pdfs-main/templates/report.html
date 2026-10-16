@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ encabezado }}</title>
+    <style>
+        @page {
+            size: letter;
+            margin: 1.5cm;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 10pt;
+            color: #1e293b;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th {
+            background-color: #1e293b;
+            color: #ffffff;
+            text-align: left;
+            padding: 8px;
+            font-size: 9pt;
+        }
+        td {
+            padding: 8px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .text-right {
+            text-align: right;
+        }
+    </style>
+    {% if es_previsualizacion %}
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .wrapper {
+            max-width: 900px;
+            width: 100%;
+            background-color: #ffffff;
+            color: #0f172a;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+        .nav-bar {
+            max-width: 900px;
+            width: 100%;
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+        }
+        .nav-btn {
+            padding: 0.75rem 1.25rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .btn-primary {
+            background-color: #10b981;
+            color: #022c22;
+        }
+        .btn-secondary {
+            background-color: #334155;
+            color: #f8fafc;
+        }
+    </style>
+    {% endif %}
+</head>
+<body>
+    {% if es_previsualizacion %}
+    <div class="wrapper">
+    {% endif %}
+
+    <h2>{{ encabezado }}</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>CÓDIGO</th>
+                <th>DESCRIPCIÓN</th>
+                <th>SECCIÓN</th>
+                <th class="text-right">PRECIO UNITARIO</th>
+                <th class="text-right">EXISTENCIAS</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in articulos %}
+            <tr>
+                <td>{{ item.codigo }}</td>
+                <td>{{ item.denominacion }}</td>
+                <td>{{ item.seccion }}</td>
+                <td class="text-right">${{ "%.2f"|format(item.costo) }}</td>
+                <td class="text-right">{{ item.unidades }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p style="margin-top: 15px; font-size: 0.95rem;">
+        Total de ítems listados: <strong>{{ articulos|length }}</strong>
+    </p>
+
+    {% if es_previsualizacion %}
+    </div>
+    <div class="nav-bar">
+        <a href="/report/pdf" class="nav-btn btn-primary">Obtener PDF</a>
+        <a href="/" class="nav-btn btn-secondary">Regresar</a>
+    </div>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ encabezado }}</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --accent: #10b981;
+            --accent-hover: #059669;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 1.5rem;
+        }
+        .container {
+            max-width: 650px;
+            width: 100%;
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid #334155;
+        }
+        .tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            color: var(--text-sub);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        .metric-box {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            background: #0f172a;
+            padding: 1rem 1.2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border: 1px solid #334155;
+        }
+        .metric-val {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: #022c22;
+            text-decoration: none;
+            padding: 0.8rem 1.6rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background: var(--accent-hover);
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="tag">Sistema de Control</div>
+        <h1>{{ encabezado }}</h1>
+        <p>Módulo de gestión y emisión de informes de existencias en almacén.</p>
+        <div class="metric-box">
+            <div class="metric-val">{{ total_items }}</div>
+            <div>Registros actualmente activos</div>
+        </div>
+        <a href="/report" class="btn">Consultar registros</a>
+    </div>
+</body>
+</html>

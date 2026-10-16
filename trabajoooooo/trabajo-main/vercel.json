@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "pdfs-main/main.py",
+      "use": "@vercel/python",
+      "config": {
+        "includeFiles": "pdfs-main/templates/**"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "pdfs-main/main.py"
+    }
+  ]
+}
